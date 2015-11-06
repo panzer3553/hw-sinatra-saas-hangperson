@@ -30,11 +30,9 @@ class HangpersonGame
     w = w.downcase
     if not @last_word.include? w
     if self.word.include? w
-      self.guesses = w
-      self.wrong_guesses = ''
+      self.guesses += w
     else
-      self.guesses = ''
-      self.wrong_guesses = w
+      self.wrong_guesses += w
     end
     else
       self.guesses = w
