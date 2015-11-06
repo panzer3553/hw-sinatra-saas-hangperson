@@ -40,19 +40,23 @@ class HangpersonGame
       self.guesses = w
       return false
     end
-    check_word(w)
     @last_word << w
-    @guesses_count += 1
+    if not check_word w
+      @guesses_count += 1
+    end
     check_win
     return true
   end
 
   def check_word(word)
+    check_state = false
     (0..@word.length).each do |i|
       if @word[i] == word
         @word_with_guesses[i] = word
+        check_state = true
       end
     end
+    return check_state
   end
 
   def check_win
